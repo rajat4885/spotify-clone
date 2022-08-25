@@ -1,7 +1,4 @@
-# spotify__clone
-
-
-# Spotify-demo🎧
+# Spotify-Clone🎧
 
 
 Code regarding a clone of the Spotify music player, containing 6 of my favourite songs.
