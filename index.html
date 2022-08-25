@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Music Player</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/9fd0dbb88b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li class="img"><img src="image/spotify.jpg" alt="player img"></li>
+            <li class="home li">Home </li>
+            <li class="about li">About</li>
+
+        </ul>
+    </nav>
+    <div class="background">
+        <h1>SPOTIFY CLONE</h1>
+        <div class="songlist 1">
+            <img src="image/img1.jpg" alt="1">
+            <span class="text">KESARIYA</span>
+            <span class="button"><i class="fa-solid fa-circle-play fa-2x icon sidebutton" id="1"></i></span>
+
+        </div>
+        <div class="songlist 2">
+            <img src="image/img2.jpg" alt="2" class="img two">
+            <span class="text">BAARISHEN</span>
+            <span class="button"><i class="fa-solid fa-circle-play fa-2x icon sidebutton" id="2"></i></span>
+
+        </div>
+
+        <div class="songlist 3">
+            <img src="image/img3.jpg" alt="3" class="img three">
+            <span class="text">KABIRA</span>
+            <span class="button"><i class="fa-solid fa-circle-play fa-2x icon sidebutton" id="3"></i></span>
+
+        </div>
+
+        <div class="songlist 4">
+            <img src="image/img4.jpg" alt="4" class="img four">
+            <span class="text">MAST MAGAN</span>
+            <span class="button"><i class="fa-solid fa-circle-play fa-2x icon sidebutton" id="4"></i></span>
+
+        </div>
+
+        <div class="songlist 5">
+            <img src="image/img5.jpg" alt="5" class="img five">
+            <span class="text">DANDELIONS</span>
+            <span class="button"><i class="fa-solid fa-circle-play fa-2x icon sidebutton" id="5"></i></span>
+
+        </div>
+
+        <div class="songlist 6">
+            <img src="image/img6.jpg" alt="6" class="img six">
+            <span class="text">PERFECT</span>
+            <span class="button"><i class="fa-solid fa-circle-play fa-2x icon sidebutton" id="6"></i></span>
+
+        </div>
+    </div>
+    <div class="icons">
+        <input type="range" class="range" id="range" name="range" max="100" min="0" value="0">
+        <i class="fa-solid fa-backward-step  fa-3x icon" id="backward"></i>
+        <i class="fa-solid fa-circle-play fa-3x icon" id="play"></i>
+        <i class="fa-solid fa-forward-step  fa-3x icon" id="forward"></i>
+
+
+    </div>
+    <script>
+        //declaring variables
+        var play = document.getElementById("play");
+        var audiobar = document.getElementById("range");
+        var sidebutton = Array.from(document.getElementsByClassName("sidebutton"));
+        let text = document.getElementsByClassName('master')
+        let songindex = 1;
+
+
+        // importing audio
+        var song = new Audio("tunes/songs1.mp3");
+
+        //Handling play/pause buttton
+        play.addEventListener("click", function () {
+            if (song.paused || song.currentTime <= 0) {
+                song.play();
+                play.classList.remove("fa-circle-play");
+                play.classList.add("fa-circle-pause");
+            } else {
+                song.pause();
+                play.classList.remove("fa-circle-pause");
+                play.classList.add("fa-circle-play");
+            }
+        });
+
+        //Adding events to audiobar
+        song.addEventListener("timeupdate", function () {
+            var progress = parseInt((song.currentTime / song.duration) * 100);
+
+            audiobar.value = progress;
+        });
+        //moving the audiobar
+        audiobar.addEventListener("change", function () {
+            song.currentTime = (audiobar.value * song.duration) / 100;
+        });
+
+        //changing the play/pause of side buttons
+        const makeplay = function () {
+            sidebutton.forEach(function (Element) {
+                Element.classList.remove("fa-circle-pause");
+                Element.classList.add("fa-circle-play");
+            });
+        };
+
+        sidebutton.forEach(function (Element) {
+            Element.addEventListener("click", function (e) {
+                makeplay();
+                songindex = parseInt(e.target.id);
+
+                e.target.classList.remove("fa-circle-play");
+                e.target.classList.add("fa-circle-pause");
+                song.src = "tunes/songs" + [songindex] + ".mp3";
+                song.currentTime = 0;
+                song.play();
+                play.classList.remove("fa-circle-play");
+                play.classList.add("fa-circle-pause");
+
+            });
+        });
+
+        document.getElementById("forward").addEventListener("click", function () {
+            if (songindex >= 6) {
+                songindex = 1;
+            } else {
+                songindex += 1;
+            }
+
+            song.src = "tunes/songs" + [songindex] + ".mp3";
+            song.currentTime = 0;
+            song.play();
+            play.classList.remove("fa-circle-play");
+            play.classList.add("fa-circle-pause");
+        });
+
+
+        document.getElementById("backward").addEventListener("click", function () {
+            if (songindex <= 1) {
+                songindex = 6;
+            } else {
+                songindex -= 1;
+            }
+
+            song.src = "tunes/songs" + [songindex] + ".mp3";
+            song.currentTime = 0;
+            song.play();
+            play.classList.remove("fa-circle-play");
+            play.classList.add("fa-circle-pause");
+        });
+    </script>
+
+
+
+    <script src="music.js"> </script>
+</body>
+
+</html>

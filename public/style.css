@@ -1,0 +1,123 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: #404040;
+  background-image: url('image/aurora_sky-1920x1080.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+nav {
+  background-color: #18181f;
+  height: 4.3rem;
+  color: #1db954;
+  font-weight: bolder;
+  border: solid #1db954;
+}
+
+.li {
+  display: inline;
+  position: relative;
+  left: 200px;
+  bottom: 50px;
+  word-spacing: 60px;
+  font-size: 1.3rem;
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+    CircularSp-Grek, CircularSp-Deva, sans-serif;
+}
+
+img {
+  height: 69px;
+  width: 75px;
+}
+
+.background {
+  display: flex;
+    flex-direction: column;
+  border: solid #1db954 thick;
+ 
+
+  height: 30rem;
+
+  width: 50rem;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 28px;
+  text-align: center;
+
+  background-image: url("image/background3.jpg");
+  background-size: cover;
+}
+h1{
+  margin-bottom: 21px;
+  
+  color: #1db954;
+  font-family: 'Fjalla One', sans-serif;
+
+
+}
+.icons {
+  background:  #18181f;
+  height: 10rem;
+  margin-top: 25px;
+  border-radius: 5px;
+  text-align: center;
+}
+.range {
+  width: 70rem;
+  display: block;
+  position: relative;
+  left: 170px;
+  top: 20px;
+}
+.icon{
+  color: white;
+  position: relative;
+  top: 20px;
+  margin:10px;
+}
+
+.songlist{
+    float: left;
+  margin: 10px;
+  margin-left: 30px;
+  background-color: rgb(76, 74, 74);
+  border-radius: 10px;
+  color: aliceblue;
+  height: 40px;
+  width: 339px;
+  border: #1db954 solid;
+  
+}
+
+.songlist img{
+  height: 40px;
+  width: 65px;
+float: left;
+}
+.button{
+  float: right;
+  position: relative;
+  bottom: 27px;
+}
+.text{
+  position: relative;
+  top: 10px;
+  font-size: 20px ;
+  font-weight: bolder;
+}
+
+.songInfo{
+  position: absolute;
+  left: 10vw;
+  font-family: 'Varela Round', sans-serif;
+  color: aliceblue;
+ font-style: italic;
+}
+
+.songInfo img{
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
