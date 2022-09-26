@@ -11,8 +11,9 @@ Functionalities include:
 
 •Individual play buttons for each of those 6 songs which are in sync with the master play button.
 
-You can run it on it your PC by going on
-```https://limitless-woodland-47303.herokuapp.com/```
+You can run it on it your PC by going on ##-->
+
+https://limitless-woodland-47303.herokuapp.com/
 
 The clone looks like-->
 
